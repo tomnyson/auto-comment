@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VIBE CODE – Tự tay làm website chỉ với 499K</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body { padding-top: 70px; background-color: #f5f7fa; font-family: 'Roboto', sans-serif; color: #333; }
+    .hero {
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: white;
+      padding: 80px 20px;
+      border-radius: 0 0 30px 30px;
+      background-image: url('https://images.unsplash.com/photo-1522202176988-66273c69755f');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1; }
+    .hero * { position: relative; z-index: 2; }
+    .hero h1 { font-size: 3rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+    .hero p { font-size: 1.5rem; font-weight: 300; }
+    .section-title { font-size: 2.5rem; font-weight: 700; color: #2c3e50; margin-bottom: 30px; }
+    .pain-points, .solution { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+    .pain-point, .solution-item {
+      background-color: white; padding: 30px; border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pain-point:hover, .solution-item:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+    .pain-point h4, .solution-item h4 { color: #e74c3c; font-size: 1.25rem; margin-bottom: 15px; }
+    .solution-item h4 { color: #2ecc71; }
+    .testimonial-slider { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 10px; }
+    .testimonial { background-color: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); min-width: 300px; flex-shrink: 0; }
+    .demo { display: flex; gap: 30px; flex-wrap: wrap; }
+    .demo-item { width: 48%; min-width: 300px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .cta { background-color: #e74c3c; color: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.2); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+    .countdown { font-size: 1.5rem; font-weight: bold; margin: 10px 0; }
+    footer { margin-top: 60px; font-size: 0.9rem; color: #7f8c8d; }
+    /* Floating Buttons */
+    .float-buttons {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      z-index: 9999;
+    }
+    .float-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.18);
+        font-size: 1.8rem;
+        color: #fff;
+        border: none;
+        outline: none;
+        transition: transform 0.15s;
+      }
+      
+    .float-btn.phone { background: #25d366; }
+    .float-btn.messenger { background: #0084FF; }
+    .float-btn.zalo { background: #0068ff; }
+    .float-btn:hover { transform: scale(1.08) rotate(-8deg); }
+    /*.float-btn i { border: none !important; }*/
+    @media (max-width: 576px) {
+      .float-buttons { right: 12px; bottom: 12px; }
+      .float-btn { width: 48px; height: 48px; font-size: 1.4rem; }
+    }
+    /* Contact Form */
+    .contact-form {
+      margin-top: 40px;
+      padding: 40px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .contact-form h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70">
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#">VIBE CODE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#hero">Trang chủ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pain-points">Vấn đề</a></li>
+          <li class="nav-item"><a class="nav-link" href="#solution">Giải pháp</a></li>
+          <li class="nav-item"><a class="nav-link" href="#value">Lợi ích</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Cảm nhận</a></li>
+          <li class="nav-item"><a class="nav-link" href="#demo">Website mẫu</a></li>
+        </ul>
+        <a href="https://m.me/edukidstaynguyen" class="btn btn-danger">Đăng ký ngay</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <!-- Hero -->
+    <section id="hero">
+      <div class="hero text-center mb-5">
+        <h1>WORKSHOP VIBE CODE – 1 KÈM 1</h1>
+        <p>Tự tay tạo website thật – chỉ với <strong>499.000đ</strong></p>
+        <a href="https://m.me/edukidstaynguyen" class="btn btn-warning btn-lg mt-3 px-5 py-3">🎯 Đăng ký ngay – chỉ 10 suất mỗi đợt!</a>
+      </div>
+    </section>
+    <!-- Pain Points -->
+    <section id="pain-points">
+      <h3 class="section-title">Bạn đang gặp khó khăn?</h3>
+      <div class="pain-points mb-5">
+        <div class="pain-point">
+          <h4>❌ Không biết bắt đầu từ đâu</h4>
+          <p>Biết học lập trình quan trọng nhưng không biết bắt đầu thế nào?</p>
+        </div>
+        <div class="pain-point">
+          <h4>❌ Không làm được sản phẩm thực tế</h4>
+          <p>Học online mãi mà vẫn không tạo nổi website thật?</p>
+        </div>
+        <div class="pain-point">
+          <h4>❌ Hay bỏ dở giữa chừng</h4>
+          <p>Thích công nghệ nhưng học xong lại không kiên trì?</p>
+        </div>
+      </div>
+    </section>
+    <!-- Solution -->
+    <section id="solution">
+      <h3 class="section-title">Giải pháp từ VIBE CODE</h3>
+      <div class="solution mb-5">
+        <div class="solution-item">
+          <h4>✅ Học 1 kèm 1</h4>
+          <p>Học kèm sát tay, hỗ trợ đến khi làm được</p>
+        </div>
+        <div class="solution-item">
+          <h4>✅ Chỉ 2 buổi</h4>
+          <p>Tạo website với Google Studio AI, Supabase & Vercel</p>
+        </div>
+        <div class="solution-item">
+          <h4>✅ Không cần kinh nghiệm</h4>
+          <p>Nội dung đơn giản, dễ hiểu cho người mới</p>
+        </div>
+        <div class="solution-item">
+          <h4>✅ Thực chiến ngay</h4>
+          <p>Học xong là có sản phẩm liền tay</p>
+        </div>
+      </div>
+    </section>
+    <!-- Value -->
+    <section id="value">
+      <div class="mb-5">
+        <h4 class="section-title">🔥 Sau khóa học, bạn sẽ:</h4>
+        <ul class="list-unstyled">
+          <li class="mb-2">✔ Làm chủ 1 website tự tạo</li>
+          <li class="mb-2">✔ Hiểu thiết kế layout và kết nối dữ liệu</li>
+          <li class="mb-2">✔ Dùng AI hiện đại để tối ưu thời gian</li>
+        </ul>
+      </div>
+    </section>
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <h4 class="section-title">💬 Cảm nhận học viên</h4>
+      <div class="testimonial-slider mb-5">
+        <div class="testimonial">
+          <p>“Chỉ sau 2 buổi, em đã tự làm được website. Mentor siêu kiên nhẫn!”</p>
+          <p class="fw-bold">– Minh Anh, lớp 11</p>
+        </div>
+        <div class="testimonial">
+          <p>“Khóa học thực tế, học xong có sản phẩm ngay. Đáng tiền!”</p>
+          <p class="fw-bold">– Hoàng Nam, sinh viên năm 2</p>
+        </div>
+        <div class="testimonial">
+          <p>“Mentor hỗ trợ nhiệt tình, em rất thích cách dạy!”</p>
+          <p class="fw-bold">– Thu Trang, lớp 10</p>
+        </div>
+      </div>
+    </section>
+    <!-- Demo -->
+    <section id="demo">
+      <h4 class="section-title">🎯 Website mẫu bạn sẽ làm được</h4>
+      <div class="demo mb-5">
+        <div class="demo-item">
+          <iframe src="https://tip.edukidstaynguyen.com" width="100%" height="300" style="border-radius: 10px;"></iframe>
+        </div>
+        <div class="demo-item">
+          <iframe src="https://b2b.edukidstaynguyen.com" width="100%" height="300" style="border-radius: 10px;"></iframe>
+        </div>
+      </div>
+    </section>
+    <!-- CTA -->
+    <section id="cta">
+      <div class="cta">
+        <h2 class="fw-bold">💌 Đăng ký ngay – Chỉ 499K!</h2>
+        <p class="countdown">⏳ Chỉ còn 5 suất – Ưu đãi hết hạn 10/06/2025</p>
+        <a href="https://m.me/edukidstaynguyen" class="btn btn-light btn-lg px-5 py-3">Giữ suất ngay</a>
+        <p class="mt-3"><small>Không phí phát sinh – hỗ trợ đến khi hoàn thành</small></p>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="text-center">
+      © 2025 Edukids Tây Nguyên. Hotline: 09xx.xxx.xxx | Fanpage: <a href="https://facebook.com/edukidstaynguyen" target="_blank">facebook.com/edukidstaynguyen</a>
+    </footer>
+    <!-- Contact Form -->
+    <section class="contact-form text-center">
+      <h3>Liên hệ với chúng tôi</h3>
+      <iframe src="https://docs.google.com/forms/d/e/your-google-form-id/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Đang tải...</iframe>
+    </section>
+  </div>
+
+  <!-- Floating Buttons -->
+  <div class="float-buttons">
+    <!-- Call Phone -->
+    <a href="tel:09xxxxxxxx" class="float-btn phone" title="Gọi ngay">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+    <!-- Messenger -->
+    <a href="https://m.me/edukidstaynguyen" class="float-btn messenger" title="Messenger" target="_blank" rel="noopener">
+        <i class="fa-brands fa-facebook-messenger"></i>
+    </a>
+    <!-- Zalo -->
+    <a href="https://zalo.me/09xxxxxxxx" class="float-btn zalo" title="Zalo" target="_blank" rel="noopener">
+      <i class="fas fa-comment-dots"></i>
+    </a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
